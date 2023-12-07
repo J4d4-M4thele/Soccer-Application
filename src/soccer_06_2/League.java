@@ -2,7 +2,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package soccer_06_1;
+package soccer_06_2;
+
+import soccer_06_1.*;
 
 /**
  *
@@ -31,12 +33,7 @@ public class League {
         
         team1.teamName = "The Greens";
         team1.playerArray = thePlayers;
-        
-        //team1
-        System.out.println(team1.teamName + " Players: ");
-        for(Player thePlayer: team1.playerArray) {
-            System.out.println(thePlayer.playerName);
-        }
+   
         //*********************TEAM 2 (THE REDS)*****************************
         Team team2 = new Team();
         team2.teamName = "The Reds";
@@ -49,10 +46,22 @@ public class League {
         team2.playerArray[2] = new Player();
         team2.playerArray[2].playerName = "Rafael Sabatini";
         
-        //team2
-        System.out.println(team2.teamName + " Players: ");
-        for(Player thePlayer: team2.playerArray) {
-            System.out.println(thePlayer.playerName);
-        }
+        //**********************************GAMES***************************
+        Game currGame = new Game();
+        currGame.homeTeam = team1;
+        currGame.awayTeam = team2;
+        
+        Goal goal1 = new Goal();
+        goal1.thePlayer = currGame.homeTeam.playerArray[2];
+        goal1.theTeam = currGame.homeTeam;
+        goal1.theTime = 55;
+        
+        Goal[] theGoals = {goal1}; 
+        currGame.goals = theGoals;
+        
+        System.out.println("Goal scored after " +
+                currGame.goals[0].theTime + " mins by " +
+                currGame.goals[0].thePlayer.playerName + " of " + 
+                currGame.goals[0].theTeam.teamName);
     }
 }
