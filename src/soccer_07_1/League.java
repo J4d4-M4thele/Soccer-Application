@@ -35,10 +35,20 @@ public class League {
         team1.teamName = "The Greens";
         team1.playerArray = thePlayers;
         
+        StringBuilder familyNameFirst = new StringBuilder();
+        
         for(Player thePlayer: team1.playerArray) {
         String name[] = thePlayer.playerName.split(" ");
+        //second element(name array)
+        familyNameFirst.append(name[1]);
+        familyNameFirst.append(", ");
+        familyNameFirst.append(name[0]);
+        
+        System.out.println(familyNameFirst);
+        //prints surname first , name
+        familyNameFirst.delete(0, familyNameFirst.length());
         }
-   
+
         //*********************TEAM 2 (THE REDS)*****************************
         Team team2 = new Team();
         team2.teamName = "The Reds";
