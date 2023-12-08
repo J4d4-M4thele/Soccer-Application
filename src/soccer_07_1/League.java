@@ -34,6 +34,10 @@ public class League {
         
         team1.teamName = "The Greens";
         team1.playerArray = thePlayers;
+        
+        for(Player thePlayer: team1.playerArray) {
+        String name[] = thePlayer.playerName.split(" ");
+        }
    
         //*********************TEAM 2 (THE REDS)*****************************
         Team team2 = new Team();
