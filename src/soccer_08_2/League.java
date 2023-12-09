@@ -8,6 +8,7 @@ import soccer_08_1.*;
 import soccer_07_1.*;
 import soccer_06_2.*;
 import soccer_06_1.*;
+import soccer_08_2.utility.GameUtils;
 
 /**
  *
@@ -23,19 +24,9 @@ public class League {
 
         //**********************************GAMES***************************
         Game currGame = theGames[0];
-
-        Goal goal1 = new Goal();
-        goal1.thePlayer = currGame.awayTeam.playerArray[2];
-        goal1.theTeam = currGame.awayTeam;
-        goal1.theTime = 55;
-
-        Goal[] theGoals = {goal1};
-        currGame.goals = theGoals;
-
-        System.out.println("Goal scored after "
-                + currGame.goals[0].theTime + " mins by "
-                + currGame.goals[0].thePlayer.playerName + " of "
-                + currGame.goals[0].theTeam.teamName);
+        currGame.playGame();
+        
+        System.out.println(currGame.getDescription());
     }
 
     public static Team[] createTeams() {
