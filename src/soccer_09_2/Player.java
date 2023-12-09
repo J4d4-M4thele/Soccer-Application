@@ -19,13 +19,13 @@ import soccer_06_1.*;
 public class Player {
 
     private String playerName;
-    
+
     public Player(String playerName) {
-    this.playerName = playerName;
+        this.playerName = playerName;
     }
-    
+
     public Player() {
-    
+
     }
 
     //getter method

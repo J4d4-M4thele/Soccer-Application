@@ -17,8 +17,23 @@ import soccer_06_1.*;
  * @author Jada
  */
 public class Team {
+
     private String teamName;
     private Player[] playerArray;
+    
+    //9.2
+    public Team(String teamName) {
+        this.teamName = teamName;
+    }
+    //9.2
+    public Team(String teamName, Player[] players) {
+        this(teamName);
+        this.playerArray = players;
+    }
+    //9.2
+    public Team() {
+    
+    }
 
     public String getTeamName() {
         return teamName;
