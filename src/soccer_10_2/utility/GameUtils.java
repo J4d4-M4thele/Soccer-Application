@@ -5,9 +5,9 @@
  */
 package soccer_10_2.utility;
 
-import soccer_10_1.utility.*;
+import soccer_10_2.utility.*;
 import java.util.Arrays;
-import soccer_10_1.*;
+import soccer_10_2.*;
 
 /**
  *

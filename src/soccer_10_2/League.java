@@ -30,13 +30,13 @@ public class League {
         Game[] theGames = theLeague.createGames(theTeams);
 
         //**********************************GAMES***************************
-        for(Game currGame: theGames) {
-        currGame.playGame();
-        System.out.println(currGame.getDescription());
+        for (Game currGame : theGames) {
+            currGame.playGame();
+            System.out.println(currGame.getDescription());
         }
-        
+
         theLeague.showBestTeam(theTeams);
-       
+
     }
 
     public static Team[] createTeams() {
@@ -74,15 +74,22 @@ public class League {
         Game[] theGames = {theGame, theGame2, theGame3, theGame4};
         return theGames;
     }
-    
+
     public void showBestTeam(Team[] theTeams) {
         Team currBestTeam = theTeams[0];
         System.out.println("\nTeam Points");
-        
-        for(Team currTeam : theTeams) {
+
+        for (Team currTeam : theTeams) {
             System.out.println(currTeam.getTeamName() + ": "
-            + currTeam.getPointsTotal());
-            currBestTeam = currTeam.getPointsTotal() > currBestTeam.getPointsTotal() ? currTeam : currBestTeam;
+                    + currTeam.getPointsTotal() + ":" + currTeam.getGoalsTotal());
+            if (currTeam.getPointsTotal()
+                    > currBestTeam.getPointsTotal()) {
+                currBestTeam = currTeam;
+            } else if (currTeam.getPointsTotal() == currBestTeam.getPointsTotal()) {
+                if (currTeam.getGoalsTotal() > currBestTeam.getGoalsTotal()) {
+                    currBestTeam = currTeam;
+                }
+            }
         }
         System.out.println("Winner of the League is " + currBestTeam.getTeamName());
     }

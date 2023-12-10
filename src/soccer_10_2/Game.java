@@ -13,7 +13,7 @@ import soccer_08_1.*;
 import soccer_07_1.*;
 import soccer_06_2.*;
 import soccer_06_1.*;
-import soccer_10_1.utility.GameUtils;
+import soccer_10_2.utility.GameUtils;
 
 /**
  *
@@ -49,19 +49,22 @@ public class Game {
         int awayTeamGoals = 0;
 
         StringBuilder returnString = new StringBuilder();
-        
-        returnString.append(homeTeam.getTeamName() + " vs. " 
-        + awayTeam.getTeamName() + "\n");
-        
+
+        returnString.append(homeTeam.getTeamName() + " vs. "
+                + awayTeam.getTeamName() + "\n");
+
         for (Goal currGoal : this.getGoals()) {
             //ADDS GOALS
             if (currGoal.getTheTeam() == homeTeam) {
                 homeTeamGoals++;
+                homeTeam.incGoalsTotal(1);
             } else {
                 awayTeamGoals++;
+                awayTeam.incGoalsTotal(1);
             }
-            
-            returnString.append("Goal scored after " + currGoal.getTheTime() + " mins by "
+
+            returnString.append("Goal scored after " + 
+                    currGoal.getTheTime() + " mins by "
                     + currGoal.getThePlayer().getPlayerName() + " of " + currGoal.getTheTeam().getTeamName() + "\n");
 
             //DETERMINES WINNER
@@ -76,14 +79,14 @@ public class Game {
                 returnString.append(awayTeam.getTeamName() + " win!");
                 awayTeam.incPointsTotal(2);
             }
-            
+
             returnString.append(" (" + homeTeamGoals + " - "
                     + awayTeamGoals + ") \n");
 
         }
         return returnString.toString();
     }
-    
+
     public Team getHomeTeam() {
         return homeTeam;
     }

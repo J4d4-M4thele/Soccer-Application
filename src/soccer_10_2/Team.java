@@ -23,6 +23,7 @@ public class Team {
     private String teamName;
     private Player[] playerArray;
     private int pointsTotal;   
+    private int goalsTotal;
     
     //9.2
     public Team(String teamName) {
@@ -64,5 +65,17 @@ public class Team {
     
     public void incPointsTotal(int pointsTotal) {
     this.pointsTotal += pointsTotal;
+    }
+
+    public int getGoalsTotal() {
+        return goalsTotal;
+    }
+
+    public void setGoalsTotal(int goalsTotal) {
+        this.goalsTotal = goalsTotal;
+    }
+    
+    public void incGoalsTotal(int goals) {
+    this.goalsTotal = this.goalsTotal + goals;
     }
 }
