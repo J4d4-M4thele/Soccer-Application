@@ -2,8 +2,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package soccer_09_2;
+package soccer_10_1;
 
+import soccer_09_2.*;
 import soccer_09_1.*;
 import soccer_08_3.*;
 import soccer_08_2.*;
@@ -11,7 +12,7 @@ import soccer_08_1.*;
 import soccer_07_1.*;
 import soccer_06_2.*;
 import soccer_06_1.*;
-import soccer_09_2.utility.GameUtils;
+import soccer_10_1.utility.GameUtils;
 
 /**
  *
@@ -22,10 +23,11 @@ public class Game {
     private Team homeTeam;
     private Team awayTeam;
     private Goal[] goals;
+
     //9.2
     public Game(Team homeTeam, Team awayTeam) {
-    this.homeTeam = homeTeam;
-    this.awayTeam = awayTeam;
+        this.homeTeam = homeTeam;
+        this.awayTeam = awayTeam;
     }
 
     public void playGame(int maxGoals) {
@@ -42,15 +44,45 @@ public class Game {
     }
 
     public String getDescription() {
+        int homeTeamGoals = 0;
+        int awayTeamGoals = 0;
+
         StringBuilder returnString = new StringBuilder();
+        
+        returnString.append(homeTeam.getTeamName() + " vs. " 
+        + awayTeam.getTeamName() + "\n");
+        
         for (Goal currGoal : this.getGoals()) {
+            //ADDS GOALS
+            if (currGoal.getTheTeam() == homeTeam) {
+                homeTeamGoals++;
+            } else {
+                awayTeamGoals++;
+            }
+            
             returnString.append("Goal scored after " + currGoal.getTheTime() + " mins by "
                     + currGoal.getThePlayer().getPlayerName() + " of " + currGoal.getTheTeam().getTeamName() + "\n");
+
+            //DETERMINES WINNER
+            if (homeTeamGoals == awayTeamGoals) {
+                returnString.append("It's a draw!");
+                homeTeam.incPointsTotal(1);
+                awayTeam.incPointsTotal(1);
+            } else if (homeTeamGoals > awayTeamGoals) {
+                returnString.append(homeTeam.getTeamName() + " win!");
+                homeTeam.incPointsTotal(2);
+            } else {
+                returnString.append(awayTeam.getTeamName() + " win!");
+                awayTeam.incPointsTotal(2);
+            }
+            
+            returnString.append(" (" + homeTeamGoals + " - "
+                    + awayTeamGoals + ") \n");
 
         }
         return returnString.toString();
     }
-
+    
     public Team getHomeTeam() {
         return homeTeam;
     }

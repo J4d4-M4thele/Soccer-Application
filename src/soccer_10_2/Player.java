@@ -2,8 +2,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package soccer_09_2;
+package soccer_10_2;
 
+import soccer_10_1.*;
+import soccer_09_2.*;
 import soccer_09_1.*;
 import soccer_08_3.*;
 import soccer_08_2.*;

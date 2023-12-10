@@ -2,8 +2,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package soccer_09_2;
+package soccer_10_1;
 
+import soccer_09_2.*;
 import soccer_09_1.*;
 import soccer_08_3.*;
 import soccer_08_2.*;
@@ -20,6 +21,7 @@ public class Team {
 
     private String teamName;
     private Player[] playerArray;
+    private int pointsTotal;   
     
     //9.2
     public Team(String teamName) {
@@ -49,5 +51,17 @@ public class Team {
 
     public void setPlayerArray(Player[] playerArray) {
         this.playerArray = playerArray;
+    }
+
+    public int getPointsTotal() {
+        return pointsTotal;
+    }
+
+    public void setPointsTotal(int pointsTotal) {
+        this.pointsTotal = pointsTotal;
+    }
+    
+    public void incPointsTotal(int pointsTotal) {
+    this.pointsTotal += pointsTotal;
     }
 }

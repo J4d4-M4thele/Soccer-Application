@@ -2,8 +2,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package soccer_09_2;
+package soccer_10_2;
 
+import soccer_10_1.*;
+import soccer_09_2.*;
 import soccer_09_1.*;
 import soccer_08_3.*;
 import soccer_08_2.*;
@@ -11,7 +13,7 @@ import soccer_08_1.*;
 import soccer_07_1.*;
 import soccer_06_2.*;
 import soccer_06_1.*;
-import soccer_09_2.utility.GameUtils;
+import soccer_10_1.utility.GameUtils;
 
 /**
  *
@@ -32,6 +34,9 @@ public class League {
         currGame.playGame();
         System.out.println(currGame.getDescription());
         }
+        
+        theLeague.showBestTeam(theTeams);
+       
     }
 
     public static Team[] createTeams() {
@@ -68,5 +73,17 @@ public class League {
         Game theGame4 = new Game(theTeams[1], theTeams[0]);
         Game[] theGames = {theGame, theGame2, theGame3, theGame4};
         return theGames;
+    }
+    
+    public void showBestTeam(Team[] theTeams) {
+        Team currBestTeam = theTeams[0];
+        System.out.println("\nTeam Points");
+        
+        for(Team currTeam : theTeams) {
+            System.out.println(currTeam.getTeamName() + ": "
+            + currTeam.getPointsTotal());
+            currBestTeam = currTeam.getPointsTotal() > currBestTeam.getPointsTotal() ? currTeam : currBestTeam;
+        }
+        System.out.println("Winner of the League is " + currBestTeam.getTeamName());
     }
 }
