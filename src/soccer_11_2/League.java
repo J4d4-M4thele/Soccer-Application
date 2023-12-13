@@ -3,11 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package soccer;
+package soccer_11_2;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.StringTokenizer;
-import utility.PlayerDatabase;
+import soccer_11_2.utility.PlayerDatabase;
 
 /**
  *
@@ -52,14 +53,15 @@ public class League {
     public Game[] createGames(Team[] theTeams) {
         /* Practice 11-2. Add a line to declare and initialize daysBetweenGames variable */
         ArrayList theGames = new ArrayList();
+        int daysBetweenGames = 0;
         
         for (Team homeTeam: theTeams){
             for (Team awayTeam: theTeams){
                if (homeTeam != awayTeam) {
                    /* Practice 11-2. Increment daysBetweenGames here */
-                   
+                   daysBetweenGames += 7;
                    /* Practice 11-2. Modify the statement below to add pass LocalDateTime into constructor */
-                   theGames.add(new Game(homeTeam, awayTeam));
+                   theGames.add(new Game(homeTeam, awayTeam, LocalDateTime.now().plusDays(daysBetweenGames)));
                } 
             
             }

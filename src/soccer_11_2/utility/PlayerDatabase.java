@@ -4,10 +4,10 @@
  * and open the template in the editor.
  */
 
-package utility;
+package soccer_11_2.utility;
 
 import java.util.*;
-import soccer.Player;
+import soccer_11_2.Player;
 
 
 

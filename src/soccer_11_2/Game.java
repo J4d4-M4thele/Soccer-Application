@@ -4,9 +4,12 @@
  * and open the template in the editor.
  */
 
-package soccer;
+package soccer_11_2;
 
-import utility.GameUtils;
+import java.time.LocalDateTime;
+import soccer_11_2.utility.GameUtils;
+import java.time.format.DateTimeFormatter;
+import java.time.*;
 
 /**
  *
@@ -17,13 +20,16 @@ public class Game {
     private Team homeTeam;
     private Team awayTeam;
     private Goal[] goals;
-    
+    //11.2
+    private LocalDateTime theDateTime;
     /* Practice 11-2. Add LocalDateTime attribute here */
     
     /* Practice 11-2. Modify the constructor to include the date and time of the game */
-    public Game(Team homeTeam, Team awayTeam) {
+    public Game(Team homeTeam, Team awayTeam , LocalDateTime theDateTime) {
         this.homeTeam = homeTeam;
         this.awayTeam = awayTeam;
+        //11.2
+        this.theDateTime = theDateTime;
     }
     
     public void playGame(int maxGoals) {       
@@ -45,7 +51,8 @@ public class Game {
         
         /* Practice 11-2. Modify the next line to include the date and time of the game */
         returnString.append(this.getHomeTeam().getTeamName() + " vs. " +
-        this.getAwayTeam().getTeamName() + "\n");
+        this.getAwayTeam().getTeamName() + "\n" + "Date " +
+                this.theDateTime.format(DateTimeFormatter.ISO_LOCAL_DATE) + "\n");
          
         for (Goal currGoal: this.getGoals()) {
             
