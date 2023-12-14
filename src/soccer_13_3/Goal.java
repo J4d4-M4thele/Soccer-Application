@@ -4,15 +4,15 @@
  * and open the template in the editor.
  */
 
-package soccer_13_1;
+package soccer_13_3;
 
 /**
  *
  * @author Administrator
  */
 public class Goal extends GameEvent {
-    public String toString() {
-    return "Goal scored ";
+    
+        public String toString(){
+        return "Goal scored";
     }
-    /* Practice 13-1. Add a toString() method */
 }

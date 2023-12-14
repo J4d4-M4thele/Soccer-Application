@@ -3,13 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package soccer_13_1;
+package soccer_13_3;
 
 import java.time.LocalDateTime;
 import java.time.Period;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.StringTokenizer;
-import soccer_13_1.utility.PlayerDatabase;
+import soccer_13_3.utility.PlayerDatabase;
 
 /**
  *
@@ -73,20 +74,15 @@ public class League {
     }
     
     public void showBestTeam(Team[] theTeams) {
+        
+        Arrays.sort(theTeams);
         Team currBestTeam = theTeams[0];  
         System.out.println("\nTeam Points");       
            
         for (Team currTeam: theTeams){
             System.out.println(currTeam.getTeamName() + " : " + currTeam.getPointsTotal() + " : "
                      + currTeam.getGoalsTotal());
-            currBestTeam = currTeam.getPointsTotal() > currBestTeam.getPointsTotal()?currTeam:currBestTeam;
-            if (currTeam.getPointsTotal() > currBestTeam.getPointsTotal()){
-                currBestTeam = currTeam;
-            } else if (currTeam.getPointsTotal() == currBestTeam.getPointsTotal()){
-                if (currTeam.getGoalsTotal() > currBestTeam.getGoalsTotal()){
-                currBestTeam = currTeam;
-                }
-            }
+
         }
         
         System.out.println("Winner of the League is " + currBestTeam.getTeamName());

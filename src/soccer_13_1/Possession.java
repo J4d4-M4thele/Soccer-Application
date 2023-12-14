@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package soccer;
+package soccer_13_1;
 
 /**
  *
@@ -13,5 +13,7 @@ package soccer;
 public class Possession extends GameEvent {
     
     /* Practice 13-1. Add a toString() method */
-    
+    public String toString() {
+    return "Possession ";
+    }
 }
