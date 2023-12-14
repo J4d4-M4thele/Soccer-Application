@@ -3,13 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
-package soccer_11_2;
+package soccer_12_1;
 
 import java.time.LocalDateTime;
-import soccer_11_2.utility.GameUtils;
 import java.time.format.DateTimeFormatter;
-import java.time.*;
+import java.util.ArrayList;
+import soccer_12_1.utility.GameUtils;
 
 /**
  *
@@ -17,74 +16,61 @@ import java.time.*;
  */
 public class Game {
 
-    /**
-     * @return the theDateTime
-     */
-    public LocalDateTime getTheDateTime() {
-        return theDateTime;
-    }
-
-    /**
-     * @param theDateTime the theDateTime to set
-     */
-    public void setTheDateTime(LocalDateTime theDateTime) {
-        this.theDateTime = theDateTime;
-    }
-    
     private Team homeTeam;
     private Team awayTeam;
     private Goal[] goals;
-    //11.2
     private LocalDateTime theDateTime;
-    /* Practice 11-2. Add LocalDateTime attribute here */
-    
-    /* Practice 11-2. Modify the constructor to include the date and time of the game */
-    public Game(Team homeTeam, Team awayTeam , LocalDateTime theDateTime) {
+
+    public Game(Team homeTeam, Team awayTeam, LocalDateTime theDateTime) {
         this.homeTeam = homeTeam;
         this.awayTeam = awayTeam;
-        //11.2
         this.theDateTime = theDateTime;
     }
-    
-    public void playGame(int maxGoals) {       
-        int numberOfGoals = (int)(Math.random() * maxGoals + 1);
+
+    public void playGame(int maxGoals) {
+        int numberOfGoals = (int) (Math.random() * maxGoals + 1);
         Goal[] theGoals = new Goal[numberOfGoals];
         this.setGoals(theGoals);
-        GameUtils.addGameGoals(this);        
+        GameUtils.addGameGoals(this);
     }
-    
+
     public void playGame() {
-        playGame(6);
+        ArrayList<Goal> eventList = new ArrayList();
+        Goal currEvent;
+        for (int i = 1; i <= 90; i++) {
+            if(Math.random() > 0.95) {
+            System.out.println(i);
+            }
+        }
     }
-    
+
     public String getDescription() {
-                       
+
         int homeTeamGoals = 0;
         int awayTeamGoals = 0;
         StringBuilder returnString = new StringBuilder();
-        
-        /* Practice 11-2. Modify the next line to include the date and time of the game */
-        returnString.append(this.getHomeTeam().getTeamName() + " vs. " +
-        this.getAwayTeam().getTeamName() + "\n" + "Date " +
-                this.getTheDateTime().format(DateTimeFormatter.ISO_LOCAL_DATE) + "\n");
-         
-        for (Goal currGoal: this.getGoals()) {
-            
-            if (currGoal.getTheTeam()== homeTeam) {
+
+        returnString.append(this.getHomeTeam().getTeamName() + " vs. "
+                + this.getAwayTeam().getTeamName() + "\n"
+                + "Date: " + this.getTheDateTime().format(DateTimeFormatter.ISO_LOCAL_DATE) + "\n");
+
+        for (Goal currGoal : this.getGoals()) {
+
+            if (currGoal.getTheTeam() == homeTeam) {
                 homeTeamGoals++;
                 homeTeam.incGoalsTotal(1);
             } else {
                 awayTeamGoals++;
                 awayTeam.incGoalsTotal(1);
             }
-            
+
             returnString.append("Goal scored after "
-            + currGoal.getTheTime() + " mins by "
-            + currGoal.getThePlayer().getPlayerName() + " of "
-            + currGoal.getTheTeam().getTeamName() +
-              "\n");
+                    + currGoal.getTheTime() + " mins by "
+                    + currGoal.getThePlayer().getPlayerName() + " of "
+                    + currGoal.getTheTeam().getTeamName()
+                    + "\n");
         }
-        
+
         if (homeTeamGoals == awayTeamGoals) {
             returnString.append("It's a draw!");
             this.homeTeam.incPointsTotal(1);
@@ -97,7 +83,7 @@ public class Game {
             this.awayTeam.incPointsTotal(1);
         }
         returnString.append(" (" + homeTeamGoals + " - " + awayTeamGoals + ") \n");
-        
+
         return returnString.toString();
     }
 
@@ -142,5 +128,33 @@ public class Game {
     public void setGoals(Goal[] goals) {
         this.goals = goals;
     }
-      
+
+    /**
+     * @return the localDateTime
+     */
+    public LocalDateTime getLocalDateTime() {
+        return getTheDateTime();
+    }
+
+    /**
+     * @param theDateTime the localDateTime to set
+     */
+    public void setLocalDateTime(LocalDateTime theDateTime) {
+        this.setTheDateTime(theDateTime);
+    }
+
+    /**
+     * @return the theDateTime
+     */
+    public LocalDateTime getTheDateTime() {
+        return theDateTime;
+    }
+
+    /**
+     * @param theDateTime the theDateTime to set
+     */
+    public void setTheDateTime(LocalDateTime theDateTime) {
+        this.theDateTime = theDateTime;
+    }
+
 }
