@@ -3,13 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package soccer_12_1;
+package soccer_12_2;
 
 import java.time.LocalDateTime;
 import java.time.Period;
 import java.util.ArrayList;
 import java.util.StringTokenizer;
-import soccer_12_1.utility.PlayerDatabase;
+import soccer_12_2.utility.PlayerDatabase;
 
 /**
  *
@@ -30,9 +30,7 @@ public class League {
         System.out.println(theLeague.getLeagueAnnouncement(theGames));
         for (Game currGame: theGames){
             currGame.playGame();
-            
-            /* Practice 12-1. Add a break command here */
-            /* Practice 12-1. Comment out the line below */
+            //break;
             System.out.println(currGame.getDescription());
         }
         
