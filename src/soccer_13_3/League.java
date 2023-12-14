@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.StringTokenizer;
 import soccer_13_3.utility.PlayerDatabase;
+import java.util.Collections;
 
 /**
  *
@@ -36,7 +37,8 @@ public class League {
         }
         
         theLeague.showBestTeam(theTeams);
-
+        theLeague.showBestPlayers(theTeams);
+  
     }
 
     public Team[] createTeams(String teamNames, int teamSize) {
@@ -98,5 +100,19 @@ public class League {
         thePeriod.getMonths() + " month(s), and " +
         thePeriod.getDays() + " day(s)\n";
     }
-
+    
+    public void showBestPlayers(Team[] theTeams) {
+    ArrayList<Player> thePlayers = new ArrayList();
+    for(Team currTeam: theTeams) {
+    thePlayers.addAll(Arrays.asList(currTeam.getPlayerArray()));
+    }
+    
+    Collections.sort(thePlayers, (p1, p2) -> Double.valueOf(p2.getGoalsScored()).compareTo(Double.valueOf(p1.getGoalsScored())));
+    
+        System.out.println("\n\nBest Players ");
+        for(Player currPlayer: thePlayers) {
+            System.out.println(currPlayer.getPlayerName() + " : " +
+                    currPlayer.getGoalsScored());
+        }
+    }
 }

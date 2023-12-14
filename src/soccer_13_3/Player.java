@@ -13,13 +13,17 @@ package soccer_13_3;
 public class Player {
     
     private String playerName;
+    private int goalsScored;
     
     public Player(String playerName) {
         this.playerName = playerName;
     }
     
     public Player() {}
-
+    //13.3
+    public void incGoalsScored() {
+    this.goalsScored++;
+    }
     /**
      * @return the playerName
      */
@@ -32,6 +36,20 @@ public class Player {
      */
     public void setPlayerName(String playerName) {
         this.playerName = playerName;
+    }
+
+    /**
+     * @return the goalsScored
+     */
+    public int getGoalsScored() {
+        return goalsScored;
+    }
+
+    /**
+     * @param goalsScored the goalsScored to set
+     */
+    public void setGoalsScored(int goalsScored) {
+        this.goalsScored = goalsScored;
     }
     
 }
